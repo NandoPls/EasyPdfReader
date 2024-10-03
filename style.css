@@ -1,0 +1,150 @@
+/* style.css */
+
+/* Estilos Generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: #6200ea;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.libros-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.libro {
+    margin: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.libro:hover {
+    transform: scale(1.05);
+}
+
+.libro img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    transition: background-color 0.3s;
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+#reader-container {
+    padding: 1rem;
+    text-align: center;
+    position: relative; /* Para posicionar el overlay si es necesario */
+}
+
+.navigation {
+    margin-top: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #6200ea;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+/* Modo Oscuro */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+.dark-mode .modal-content {
+    background-color: #1f1f1f;
+}
+
+.dark-mode button {
+    background-color: #bb86fc;
+}
+
+.dark-mode button:hover {
+    background-color: #3700b3;
+}
+
+/* Aplicar filtro al canvas en modo oscuro */
+.dark-mode #pdf-render {
+    filter: invert(1) hue-rotate(180deg);
+    background-color: #121212; /* Asegura que el fondo del canvas sea oscuro */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .libros-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}

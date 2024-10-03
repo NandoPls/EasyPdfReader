@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Biblioteca Online</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Mi Biblioteca Online</h1>
+        <button id="toggle-dark-mode">Modo Oscuro</button>
+    </header>
+    <main>
+        <div class="libros-container">
+            <div class="libro" data-libro="libro1.pdf">
+                <img src="imagenes/libro1.jpg" alt="Libro 1">
+                <p>Libro 1</p>
+            </div>
+            <div class="libro" data-libro="libro2.pdf">
+                <img src="imagenes/libro2.jpg" alt="Libro 2">
+                <p>Libro 2</p>
+            </div>
+            <div class="libro" data-libro="libro3.pdf">
+                <img src="imagenes/libro3.jpg" alt="Libro 3">
+                <p>Libro 3</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para leer el libro -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <div id="reader-container">
+                <canvas id="pdf-render"></canvas>
+                <div class="navigation">
+                    <button id="prev-page">Anterior</button>
+                    <span>Página <span id="current-page">1</span> de <span id="total-pages">?</span></span>
+                    <button id="next-page">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
